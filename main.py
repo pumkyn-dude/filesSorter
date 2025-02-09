@@ -9,7 +9,7 @@ if not os.path.exists(directory):
     print("Directory does not exist.")
     exit()
 
-# Iterate through files in the directory
+# Loop through files in the directory
 for file in os.listdir(directory):
     file_path = os.path.join(directory, file)
 
