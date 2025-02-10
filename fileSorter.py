@@ -1,5 +1,6 @@
 import os
 import shutil
+import time
 
 def file_sorter():
     # Ask user for the target directory
@@ -36,3 +37,5 @@ def file_sorter():
                     shutil.move(file_path, os.path.join(ext_folder, file))
 
                 print(f"Moved {file} to {ext_folder}/")
+                time.sleep(10)
+                exit()
