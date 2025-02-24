@@ -28,14 +28,19 @@ def file_sorter():
                 image_formats = ["jpg", "jpeg", "png", "gif", "bmp", "tiff", "heic", "webp"]
                 if ext in image_formats:
                     ext_folder = os.path.join(images_folder, ext)  # Subfolder for each format
-                    os.makedirs(ext_folder, exist_ok=True)
+                    if not os.path.exists(ext_folder):
+                        os.makedirs(ext_folder)
                     shutil.move(file_path, os.path.join(ext_folder, file))
                 else:
                     # Organize non-image files based on their extension
                     ext_folder = os.path.join(directory, ext)
-                    os.makedirs(ext_folder, exist_ok=True)
+                    if not os.path.exists(ext_folder):
+                        os.makedirs(ext_folder)
                     shutil.move(file_path, os.path.join(ext_folder, file))
 
                 print(f"Moved {file} to {ext_folder}/")
                 time.sleep(10)
-                exit()
+
+    print("File sorting complete.")
+
+file_sorter()
